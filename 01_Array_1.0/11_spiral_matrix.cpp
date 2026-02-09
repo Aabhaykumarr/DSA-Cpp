@@ -1,0 +1,50 @@
+/*
+LeetCode Problem 54: Spiral Matrix
+Difficulty: Medium
+
+Approach:
+- Use boundary traversal with four pointers:
+  starting_row, ending_row, starting_col, ending_col
+- Traverse the matrix layer by layer in spiral order
+- Maintain a count to avoid revisiting elements
+
+Time Complexity: O(m * n)
+Space Complexity: O(1) extra space (excluding output vector)
+*/
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+       vector<int> ans;
+       int count=0;
+       int row=matrix.size();
+       int col=matrix[0].size();
+       int total=row*col;
+
+       int starting_row=0;
+       int starting_col=0;
+       int ending_row=row-1;
+       int ending_col=col-1;
+       while(count < total){
+        for(int index=starting_col; count < total && index <= ending_col;index++ ){
+            ans.push_back(matrix[starting_row][index]);
+            count++;
+        } starting_row++;
+        for(int index=starting_row; count< total && index <= ending_row;index++){
+             ans.push_back(matrix[index][ending_col]);
+             count++;
+        } ending_col--;
+        for(int index=ending_col;count < total && index >= starting_col;index--){
+            ans.push_back(matrix[ending_row][index]);
+            count++;
+        } ending_row--;
+        for(int index=ending_row; count<total && index >= starting_row;index--){
+            ans.push_back(matrix[index][starting_col]);
+            count++;
+        } starting_col++;
+       }
+    return ans;
+    }
+};
