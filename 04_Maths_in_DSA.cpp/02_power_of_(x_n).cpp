@@ -8,27 +8,19 @@
 class Solution {
 public:
     double myPow(double x, int n) {
-        
-        long long N = n;  // Convert to long long to prevent overflow
-        
-        // Handle negative exponent
-        if (N < 0) {
-            x = 1 / x;
-            N = -N;
+        double res=1;
+        long long N=n;
+        if(N<0){
+            x=1/x;
+            N=-N;
         }
-        
-        double result = 1.0;
-        
-        // Binary exponentiation
-        while (N > 0) {
-            if (N % 2 == 1) {   // If current bit is 1 (odd)
-                result *= x;
+        while(N>0){
+            if(N&1){
+                res=res*(x);
             }
-            
-            x *= x;            // Square the base
-            N /= 2;            // Divide exponent by 2
+            x=x*x;
+            N=N>>1;
         }
-        
-        return result;
+    return res;
     }
 };
