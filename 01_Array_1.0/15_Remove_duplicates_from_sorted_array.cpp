@@ -10,6 +10,12 @@ We use the two-pointer technique.
 - When a new unique element is found, move i forward
   and overwrite nums[i] with nums[j].
 - Count tracks number of unique elements.
+
+
+- Implemented in-place duplicate removal
+- Time Complexity: O(n)
+- Space Complexity: O(1)
+- Used two-pointer technique for efficient traversal
 */
 
 #include <vector>
