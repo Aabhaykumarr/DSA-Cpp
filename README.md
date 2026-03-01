@@ -24,9 +24,9 @@ This repository contains clean, beginner-friendly, and optimized solutions to co
 - 2D Arrays / Matrices
 - Basic STL usage
 - Basic Maths
+- Strings
+- Recursion
 - (More topics coming soon 👇)
-  - Strings
-  - Recursion
   - Sorting
   - Linked List
   - Stack & Queue
